@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+}
+
+plugins {
+    id 'edu.sc.seis.launch4j' version '2.1.0'
+}
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+
+launch4j {
+    mainClassName = 'org.codecomm.gradle.Sample'
+    jreMinVersion = '1.8.0'
+    jreMaxVersion = '1.8.9'
+    jdkPreference = 'preferJre'
+    initialHeapSize = 128
+    maxHeapSize = 512
+    stayAlive = false
+    bundledJre64Bit = true
+    dontWrapJar = true
+    bundledJrePath = 'jre'
+}
